@@ -31,7 +31,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zas-Xi-YB7">
-                                <rect key="frame" x="180" y="261.5" width="54" height="31"/>
+                                <rect key="frame" x="100" y="261.5" width="214" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="接続"/>
                                 <connections>
@@ -47,8 +47,8 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WaS-XZ-giS" secondAttribute="trailing" constant="73" id="Hmw-pQ-LXi"/>
                             <constraint firstItem="BGW-Oa-iGe" firstAttribute="top" secondItem="WaS-XZ-giS" secondAttribute="bottom" constant="49" id="SCU-2Z-673"/>
                             <constraint firstItem="WaS-XZ-giS" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="Uev-vb-QOc"/>
-                            <constraint firstItem="Zas-Xi-YB7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="180" id="ZW6-CH-EDd"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zas-Xi-YB7" secondAttribute="trailing" constant="180" id="aze-td-ShE"/>
+                            <constraint firstItem="Zas-Xi-YB7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="100" id="ZW6-CH-EDd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Zas-Xi-YB7" secondAttribute="trailing" constant="100" id="aze-td-ShE"/>
                             <constraint firstItem="Zas-Xi-YB7" firstAttribute="top" secondItem="BGW-Oa-iGe" secondAttribute="bottom" constant="50" id="dF4-Q7-bKh"/>
                             <constraint firstItem="WaS-XZ-giS" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="k0s-Pz-PxY"/>
                         </constraints>

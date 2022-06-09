@@ -22,13 +22,25 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         socket = WebSocket(request: request)
         socket.connect()
+        socket.onEvent = {[unowned self] event in
+            switch event {
+            case .connected(_):
+                connectLabel.text = "接続完了"
+            case .disconnected(_, _):
+                connectLabel.text = "接続していません"
+            case .error(let error):
+                print(error)
+            default:
+                break
+            }
+        }
     }
     
     @IBAction func connectButtonDidPressed(_ sender: Any) {
         defer { isConnected = !isConnected }
         if isConnected {
             socket.disconnect()
-            connectLabel.text = "接続していません"
+            connectLabel.text = "接続解除中"
         }
         else {
             socket.connect()
