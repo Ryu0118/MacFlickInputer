@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var textField: UITextField!
     @IBOutlet private weak var connectLabel: UILabel!
-    
+    @IBOutlet private weak var connectButton: UIButton!
     let request = URLRequest(url: URL(string: "http://localhost:8765")!)
     var socket: WebSocket!
     var isConnected = false
@@ -25,9 +25,12 @@ class ViewController: UIViewController {
             switch event {
             case .connected(_):
                 connectLabel.text = "接続完了"
+                connectButton.setTitle("接続解除", for: .normal)
             case .disconnected(_, _):
                 connectLabel.text = "接続していません"
+                connectButton.setTitle("接続", for: .normal)
             case .error(let error):
+                guard let error = error else { return }
                 print(error)
             default:
                 break

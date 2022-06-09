@@ -54,6 +54,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="connectButton" destination="Zas-Xi-YB7" id="xLB-OC-5uA"/>
                         <outlet property="connectLabel" destination="WaS-XZ-giS" id="Tap-aD-F3S"/>
                         <outlet property="textField" destination="BGW-Oa-iGe" id="qO4-DA-pVZ"/>
                     </connections>
