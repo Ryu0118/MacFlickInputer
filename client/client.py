@@ -4,11 +4,8 @@ import pyautogui
 
 
 async def main():
-    uri = "ws://localhost:8765"
-    async with websockets.connect(uri) as websocket:
+    url = "ws://localhost:8765"
+    async with websockets.connect(url) as websocket:
+        print(f'Successfully connect {url}')
         char = await websocket.recv()
         pyautogui.press(char)
-
-
-if __name__ == '__main__':
-    asyncio.run(main())
