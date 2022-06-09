@@ -21,7 +21,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         socket = WebSocket(request: request)
-        socket.connect()
         socket.onEvent = {[unowned self] event in
             switch event {
             case .connected(_):

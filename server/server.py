@@ -4,6 +4,7 @@ import websockets
 
 async def echo(websocket, path):
     async for message in websocket:
+        print(message)
         await websocket.send(message)
 
 
