@@ -76,8 +76,8 @@ class ViewController: UIViewController {
     
     @IBAction func textFieldDidChange(_ sender: Any) {
         defer { textCount = textField.text?.count ?? 0 }
-        guard let text = textField.text else { return }
         guard isConnected else { return }
+        let text = textField.text ?? ""
         if let last = text.last, text.count > textCount {
             socket.write(string: "client:\(String(last))")
         }
