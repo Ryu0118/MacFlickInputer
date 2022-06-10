@@ -1,7 +1,4 @@
 import asyncio
-import time
-import subprocess
-import pyautogui
 from server import server
 
 
