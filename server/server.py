@@ -18,7 +18,7 @@ async def echo(websocket, path):
             elif data[1] == 'delete':
                 pyautogui.hotkey('delete')
             else:
-                pyperclip.copy(message)
+                pyperclip.copy(data[1])
                 pyautogui.hotkey('command', 'v')
 
 
