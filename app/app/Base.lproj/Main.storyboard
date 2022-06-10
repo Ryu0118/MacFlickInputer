@@ -77,6 +77,7 @@
                     <connections>
                         <outlet property="connectButton" destination="Zas-Xi-YB7" id="xLB-OC-5uA"/>
                         <outlet property="connectLabel" destination="WaS-XZ-giS" id="Tap-aD-F3S"/>
+                        <outlet property="linkButton" destination="7Rf-7M-fNe" id="76h-NC-0N4"/>
                         <outlet property="textField" destination="BGW-Oa-iGe" id="qO4-DA-pVZ"/>
                     </connections>
                 </viewController>

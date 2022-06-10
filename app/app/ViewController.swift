@@ -12,6 +12,11 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var connectLabel: UILabel!
     @IBOutlet private weak var connectButton: UIButton!
+    @IBOutlet weak var linkButton: UIButton! {
+        didSet {
+            linkButton.setTitle("", for: .normal)
+        }
+    }
     @IBOutlet private weak var textField: CustomTextField! {
         didSet {
             textField.didDelete = {[unowned self] in
