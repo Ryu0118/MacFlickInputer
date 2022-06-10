@@ -12,13 +12,13 @@ class ViewController: UIViewController {
     
     @IBOutlet private weak var connectLabel: UILabel!
     @IBOutlet private weak var connectButton: UIButton!
+    @IBOutlet private weak var textField: UITextField!
     @IBOutlet weak var linkButton: UIButton! {
         didSet {
             linkButton.setTitle("", for: .normal)
         }
     }
-    @IBOutlet private weak var textField: UITextField!
- 
+    
     let request = URLRequest(url: URL(string: "http://192.168.0.56:8765")!)
     var socket: WebSocket!
     var isConnected = false
