@@ -28,6 +28,7 @@ class ViewController: UIViewController {
     let request = URLRequest(url: URL(string: "http://192.168.0.56:8765")!)
     var socket: WebSocket!
     var isConnected = false
+    var textCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -80,8 +81,10 @@ class ViewController: UIViewController {
     }
     
     @IBAction func textFieldDidChange(_ sender: Any) {
+        defer { textCount = textField.text?.count ?? 0 }
         guard let text = textField.text, let last = text.last else { return }
         guard isConnected else { return }
+        guard textCount < text.count else { return }
         socket.write(string: "client:\(String(last))")
     }
     
