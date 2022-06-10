@@ -1,14 +1,12 @@
 import asyncio
-from client import client
+import time
+import subprocess
+import pyautogui
 from server import server
 
 
 async def main():
-    client_task, server_task = asyncio.create_task(
-        client.main()), asyncio.create_task(server.main())
-    res1 = await server_task
-    res2 = await client_task
-    print(res1, res2)
+    await asyncio.create_task(server.main())
 
 if __name__ == '__main__':
     asyncio.run(main())

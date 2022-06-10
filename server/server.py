@@ -13,6 +13,7 @@ async def echo(websocket, path):
             if data[1] == 'link':
                 pyautogui.hotkey('command', 'shift', 'left')
                 pyautogui.hotkey('command', 'c')
+                pyautogui.hotkey('left')
                 await websocket.send('server:' + pyperclip.paste())
             elif data[1] == 'delete':
                 pyautogui.hotkey('delete')
