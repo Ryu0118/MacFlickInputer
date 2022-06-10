@@ -1,5 +1,4 @@
 import asyncio
-import time
 import pyautogui
 import pyperclip
 import websockets
