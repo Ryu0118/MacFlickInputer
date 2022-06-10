@@ -8,7 +8,7 @@ import websockets
 def link():
     pyautogui.hotkey('command', 'shift', 'left')
     pyautogui.hotkey('command', 'c')
-    pyautogui.hotkey('left')
+    pyautogui.hotkey('right')
 
 
 async def echo(websocket, path):
@@ -22,6 +22,7 @@ async def echo(websocket, path):
             elif data[1] == 'delete':
                 pyautogui.hotkey('delete')
             elif data[1] == 'connected':
+                await asyncio.sleep(0.1)
                 link()
             else:
                 pyperclip.copy(data[1])
