@@ -28,7 +28,7 @@
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="接続"/>
                                 <connections>
-                                    <action selector="connectButtonDidPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="5FY-rC-Ift"/>
+                                    <action selector="connectButtonDidPress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="JUo-FE-9v2"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="ARL-xJ-NcE">

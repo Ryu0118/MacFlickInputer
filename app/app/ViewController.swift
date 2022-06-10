@@ -28,7 +28,6 @@ class ViewController: UIViewController {
     let request = URLRequest(url: URL(string: "http://192.168.0.56:8765")!)
     var socket: WebSocket!
     var isConnected = false
-    var prevTextCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +42,7 @@ class ViewController: UIViewController {
             case .connected(_):
                 connectLabel.text = "接続完了"
                 connectButton.setTitle("接続解除", for: .normal)
+                isConnected = !isConnected
             case .disconnected(_, _):
                 connectLabel.text = "接続していません"
                 connectButton.setTitle("接続", for: .normal)
@@ -81,7 +81,7 @@ class ViewController: UIViewController {
     @IBAction func textFieldDidChange(_ sender: Any) {
         guard let text = textField.text, let last = text.last else { return }
         guard isConnected else { return }
-        socket.write(string: String(last))
+        socket.write(string: "client:" + String(last))
     }
     
 }
