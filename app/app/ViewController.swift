@@ -42,6 +42,7 @@ class ViewController: UIViewController {
             case .connected(_):
                 connectLabel.text = "接続完了"
                 connectButton.setTitle("接続解除", for: .normal)
+                socket.write(string: "client:connected")
                 isConnected = !isConnected
             case .disconnected(_, _):
                 connectLabel.text = "接続していません"
@@ -81,7 +82,7 @@ class ViewController: UIViewController {
     @IBAction func textFieldDidChange(_ sender: Any) {
         guard let text = textField.text, let last = text.last else { return }
         guard isConnected else { return }
-        socket.write(string: "client:" + String(last))
+        socket.write(string: "client:\(String(last))")
     }
     
 }
