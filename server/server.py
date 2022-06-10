@@ -5,25 +5,24 @@ import pyperclip
 import websockets
 
 
-def link():
+async def link(websocket):
     pyautogui.hotkey('command', 'shift', 'left')
     pyautogui.hotkey('command', 'c')
     pyautogui.hotkey('right')
+    await websocket.send('server:' + pyperclip.paste())
 
 
 async def echo(websocket, path):
     async for message in websocket:
         print("receive message:", message)
         data = message.split(':')
-        if len(data) == 2 and data[0] == 'client':
-            if data[1] == 'link':
-                link()
-                await websocket.send('server:' + pyperclip.paste())
+        if 2 <= len(data) <= 3 and data[0] == 'client':
+            if data[1] == 'link' or data[1] == 'connected':
+                await link(websocket)
             elif data[1] == 'delete':
-                pyautogui.hotkey('delete')
-            elif data[1] == 'connected':
-                await asyncio.sleep(0.1)
-                link()
+                pyautogui.hotkey('command', 'shift', 'left')
+                pyperclip.copy(data[2])
+                pyautogui.hotkey('command', 'v')
             else:
                 pyperclip.copy(data[1])
                 pyautogui.hotkey('command', 'v')
