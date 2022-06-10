@@ -17,13 +17,7 @@ class ViewController: UIViewController {
             linkButton.setTitle("", for: .normal)
         }
     }
-    @IBOutlet private weak var textField: CustomTextField! {
-        didSet {
-            textField.didDelete = {[unowned self] in
-                socket.write(string: "client:delete")
-            }
-        }
-    }
+    @IBOutlet private weak var textField: UITextField!
  
     let request = URLRequest(url: URL(string: "http://192.168.0.56:8765")!)
     var socket: WebSocket!
@@ -82,10 +76,14 @@ class ViewController: UIViewController {
     
     @IBAction func textFieldDidChange(_ sender: Any) {
         defer { textCount = textField.text?.count ?? 0 }
-        guard let text = textField.text, let last = text.last else { return }
+        guard let text = textField.text else { return }
         guard isConnected else { return }
-        guard textCount < text.count else { return }
-        socket.write(string: "client:\(String(last))")
+        if let last = text.last, text.count > textCount {
+            socket.write(string: "client:\(String(last))")
+        }
+        else {
+            socket.write(string: "client:delete:\(text)")
+        }
     }
     
 }
@@ -94,15 +92,4 @@ extension Array {
     subscript(safe index: Index) -> Element? {
         return indices.contains(index) ? self[index] : nil
     }
-}
-
-class CustomTextField: UITextField {
-    
-    var didDelete: (() -> ())?
-    
-    override func deleteBackward() {
-        super.deleteBackward()
-        didDelete?()
-    }
-    
 }
